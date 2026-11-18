@@ -1,0 +1,25 @@
+[package]
+name = "clipstash-app"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "clipstash menu-bar app"
+
+[[bin]]
+name = "clipstash-app"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+clipstash-core.workspace = true
+clipstash-platform-macos.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
+tauri = { version = "2", features = ["tray-icon", "macos-private-api", "image-png"] }
+tauri-nspanel = "2.1"
+tauri-plugin-global-shortcut = "2"
+tauri-plugin-single-instance = "2"
+tauri-plugin-dialog = "2"
